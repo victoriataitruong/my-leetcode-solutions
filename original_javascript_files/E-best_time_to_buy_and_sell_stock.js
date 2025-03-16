@@ -9,16 +9,25 @@ Approach:
 2. **Calculate Potential Profit**: For each price, calculate the potential profit by subtracting the minimum price from the current price.
 3. **Track Maximum Profit**: Keep track of the maximum profit by comparing the current profit with the previously recorded maximum profit.
 4. **Return the Maximum Profit**: After iterating through the list, return the maximum profit found. If no profit is possible, return 0.
+
+Example: [7,1,5,3,6,4]
+initally            minPrice = Infinity             maxProfit = 0
+price[i] = 7        minPrice = 7                    maxProfit = 0
+price[i] = 1        minPrice = 1                    maxProfit = 0
+price[i] = 5        minPrice = 1                    maxProfit = 4
+price[i] = 3        minPrice = 1                    maxProfit = 4
+price[i] = 6        minPrice = 1                    maxProfit = 5
+price[i] = 4        minPrice = 1                    maxProfit = 5
 */
 
-function maxProfit(prices) {
+function maxProfit(prices){
+    if (prices.length < 2) return 0;
     let minPrice = Infinity;
     let maxProfit = 0;
 
-    for (let i = 0; i < prices.length; i++) {
-        minPrice = Math.min(minPrice, prices[i])
+    for(let i =0; i < prices.length; i++){
+        minPrice = Math.min(minPrice, prices[i]);
         maxProfit = Math.max(maxProfit, prices[i] - minPrice)
     }
-
     return maxProfit;
 }
