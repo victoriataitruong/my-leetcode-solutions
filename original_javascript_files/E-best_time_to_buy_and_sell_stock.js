@@ -21,7 +21,6 @@ price[i] = 4        minPrice = 1                    maxProfit = 5
 */
 
 function maxProfit(prices){
-    if (prices.length < 2) return 0;
     let minPrice = Infinity;
     let maxProfit = 0;
 
