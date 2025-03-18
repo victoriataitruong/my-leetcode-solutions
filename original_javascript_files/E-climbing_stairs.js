@@ -4,6 +4,8 @@ Leetcode 70: Climbing Stairs
 Problem Description:
 Given an integer `n` representing the total number of steps in a staircase, you can climb either 1 or 2 steps at a time. Your task is to return the number of distinct ways to reach the top. The solution must be solved in **O(n)** time complexity, where `n` is the number of steps.
 
+Problem Type: Dynamic Programming
+
 Approach:
 1. **Base Cases**: If there are 0 or 1 steps, there's only one way to reach the top.
 2. **Dynamic Programming**: Use two variables to keep track of the number of ways to reach the last two steps. For each step, the number of ways to reach it is the sum of the previous two steps.
@@ -11,6 +13,7 @@ Approach:
 4. **Return the Result**: After iterating through the steps, the result will be stored in the variable for the last step.
 
 Example: 4
+ways to get to step 4 = ways to step 3 + ways to step 2
 With steps 0 and 1 the answer will always be 1, we will always start with step 2
 
 i       current (ways to step i)			prev2 (ways to step i-2)        prev1 (ways to step i-1)
@@ -34,7 +37,6 @@ var climbStairs = function(n) {
         prev1 = current;
     }
 
-    // After the loop ends, prev1 contains the number of ways to reach step n
     return prev1;
 }
 

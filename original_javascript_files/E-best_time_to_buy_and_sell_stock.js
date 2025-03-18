@@ -4,6 +4,8 @@ Leetcode 121: Best Time to Buy and Sell Stock
 Problem Description:
 You are given an array `prices` where `prices[i]` represents the price of a given stock on the `i-th` day. You want to maximize your profit by choosing a single day to buy one stock and choosing a later day to sell that stock. Return the maximum profit you can achieve from this transaction. If no profit can be made, return `0`. The solution must be solved in **O(n)** time complexity, where `n` is the number of days.
 
+Problem Type: Greedy
+
 Approach:
 1. **Track the Minimum Price**: Keep track of the lowest price encountered so far as you iterate through the list of prices.
 2. **Calculate Potential Profit**: For each price, calculate the potential profit by subtracting the minimum price from the current price.
