@@ -10,32 +10,31 @@ Approach:
 3. **Iterate Through the Steps**: Starting from step 2, iteratively calculate the number of ways to reach each step based on the previous two steps.
 4. **Return the Result**: After iterating through the steps, the result will be stored in the variable for the last step.
 
+Example: 4
+With steps 0 and 1 the answer will always be 1, we will always start with step 2
+
+i       current (ways to step i)			prev2 (ways to step i-2)        prev1 (ways to step i-1)
+2		2								    1                               2                                  
+3       3                                   2                           	3
+4       5                                   3                           	5          
+
+return 5
 */
-class Solution {
-    climbStairs(n) {
-        // Base cases: if there are no steps or only one step, there's only one way to climb
-        if (n === 0 || n === 1) {
-            return 1;
-        }
-
-        // Initialize two variables to represent the number of ways to reach the last two steps
-        let prev2 = 1; // prev2 corresponds to the number of ways to reach step n-2
-        let prev1 = 1; // prev1 corresponds to the number of ways to reach step n-1
-
-        // Iterate from step 2 to n to calculate the number of ways for each step
-        for (let i = 2; i <= n; i++) {
-            // The current number of ways to reach step i is the sum of the previous two steps
-            let current = prev1 + prev2;
-            // Update prev2 and prev1 for the next iteration
-            prev2 = prev1;
-            prev1 = current;
-        }
-
-        // After the loop ends, prev1 contains the number of ways to reach step n
-        return prev1;
+var climbStairs = function(n) {
+    if (n === 0 || n === 1) {
+        return 1;
     }
+
+    let prev2 = 1; 
+    let prev1 = 1; 
+
+    for (let i = 2; i <= n; i++) {
+        let current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    // After the loop ends, prev1 contains the number of ways to reach step n
+    return prev1;
 }
 
-// Example usage
-const solution = new Solution();
-console.log(solution.climbStairs(5)); // Output: 8

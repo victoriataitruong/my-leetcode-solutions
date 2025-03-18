@@ -18,9 +18,11 @@ price[i] = 5        minPrice = 1                    maxProfit = 4
 price[i] = 3        minPrice = 1                    maxProfit = 4
 price[i] = 6        minPrice = 1                    maxProfit = 5
 price[i] = 4        minPrice = 1                    maxProfit = 5
+
+return 5
 */
 
-function maxProfit(prices){
+var maxProfit = function(prices) {
     let minPrice = Infinity;
     let maxProfit = 0;
 
