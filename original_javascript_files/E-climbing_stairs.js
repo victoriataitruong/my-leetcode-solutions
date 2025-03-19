@@ -26,7 +26,7 @@ i       current (ways to step i)			prev2 (ways to step i-2)        prev1 (ways t
 return 5
 */
 
-var climbStairs = function(n) {
+let climbStairs = function(n) {
     if (n === 0 || n === 1) {
         return 1;
     }

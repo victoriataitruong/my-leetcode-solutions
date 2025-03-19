@@ -26,7 +26,7 @@ price[i] = 4        minPrice = 1                    maxProfit = 5
 return 5
 */
 
-var maxProfit = function(prices) {
+let maxProfit = function(prices) {
     let minPrice = Infinity;
     let maxProfit = 0;
 

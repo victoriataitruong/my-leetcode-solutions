@@ -20,29 +20,19 @@ Efficient Approach:
 - As we iterate through the array, if we encounter a number already in the set, we return `True` immediately.
 - If we finish iterating without finding duplicates, we return `False`.
 - This approach runs in O(n) time complexity and uses O(n) extra space.
+
+Problem Type: Duplicate Detection problem using hashing
+
+Time complexity: O(n)
 */
 
-class Solution {
-    /**
-     * Determines if the input array contains any duplicates.
-     * @param {number[]} nums - Array of integers
-     * @return {boolean} - True if duplicates exist, otherwise False
-     */
-    containsDuplicate(nums) {
-        const seen = new Set(); // Initialize an empty set to store unique numbers
-
-        for (const num of nums) { // Iterate through each number in the array
-            if (seen.has(num)) { // If the number is already in the set, duplicate found
-                return true; // Return true immediately
-            }
-            seen.add(num); // Otherwise, add the number to the set
-        }
-
-        return false; // If no duplicates were found, return false
+let containsDuplicate = function (nums) {
+  const seen = new Set();
+  for (const num of nums) {
+    if (seen.has(num)) {
+      return true;
     }
-}
-
-// Example usage:
-const solution = new Solution();
-console.log(solution.containsDuplicate([1, 2, 3, 1])); // Output: true
-console.log(solution.containsDuplicate([1, 2, 3, 4])); // Output: false
+    seen.add(num);
+  }
+  return false;
+};
