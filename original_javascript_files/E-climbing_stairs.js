@@ -6,6 +6,8 @@ Given an integer `n` representing the total number of steps in a staircase, you 
 
 Problem Type: Dynamic Programming
 
+Time complexity: O(n)
+
 Approach:
 1. **Base Cases**: If there are 0 or 1 steps, there's only one way to reach the top.
 2. **Dynamic Programming**: Use two variables to keep track of the number of ways to reach the last two steps. For each step, the number of ways to reach it is the sum of the previous two steps.
@@ -23,6 +25,7 @@ i       current (ways to step i)			prev2 (ways to step i-2)        prev1 (ways t
 
 return 5
 */
+
 var climbStairs = function(n) {
     if (n === 0 || n === 1) {
         return 1;

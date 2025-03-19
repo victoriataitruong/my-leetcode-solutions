@@ -6,6 +6,8 @@ You are given an array `prices` where `prices[i]` represents the price of a give
 
 Problem Type: Greedy
 
+Time complexity: O(n)
+
 Approach:
 1. **Track the Minimum Price**: Keep track of the lowest price encountered so far as you iterate through the list of prices.
 2. **Calculate Potential Profit**: For each price, calculate the potential profit by subtracting the minimum price from the current price.
