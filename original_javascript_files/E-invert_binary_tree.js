@@ -31,9 +31,27 @@ let invertTree = function(root) {
     
     [root.left, root.right] = [root.right, root.left];
 
-    this.invertTree(root.left);
-    this.invertTree(root.right);
+    invertTree(root.left);
+    invertTree(root.right);
     
     return root;
   }
 
+//Example usage: 
+let root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+// Inverting the tree
+let invertedRoot = invertTree(root);
+
+// Now the tree is inverted:
+//       1
+//      / \
+//     3   2
+//        / \
+//       5   4
+
+console.log(invertedRoot);
