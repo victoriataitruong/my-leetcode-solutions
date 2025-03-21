@@ -10,33 +10,30 @@ Approach:
 3. **Swap**: For the current node, swap its left and right children.
 4. **Recursive Call**: Continue the inversion recursively for the left and right subtrees.
 5. **Return**: Return the root of the tree after it has been fully inverted.
+
+Time complexity: O(n)
+Problem Type: Tree Traversal / DFS (Recursion)
 */
 
 class TreeNode {
-    constructor(val = 0, left = null, right = null) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
+  constructor(val = 0, left = null, right = null) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+  }
 }
 
-class Solution {
-    invertTree(root) {
-        // Base case: If the current node is null, return null
-        if (root === null) {
-            return null;
-        }
 
-        // Swap the left and right children of the current node
-        [root.left, root.right] = [root.right, root.left];
-
-        // Recursively invert the left subtree
-        this.invertTree(root.left);
-
-        // Recursively invert the right subtree
-        this.invertTree(root.right);
-
-        // Return the root of the inverted tree
-        return root;
+let invertTree = function(root) {
+    if (root === null) {
+      return null;
     }
-}
+    
+    [root.left, root.right] = [root.right, root.left];
+
+    this.invertTree(root.left);
+    this.invertTree(root.right);
+    
+    return root;
+  }
+

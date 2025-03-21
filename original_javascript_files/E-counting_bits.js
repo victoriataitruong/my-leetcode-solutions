@@ -18,6 +18,7 @@ Approach:
 3. **Build the Result**: Create an array `dp` where `dp[i]` stores the number of 1's in the binary representation of `i`. Populate it using the relation mentioned above for all `i` from 1 to `n`.
 
 Time complexity: O(n)
+Problem type: dynamic programming
 */
 
 let countBits = function(n) {
