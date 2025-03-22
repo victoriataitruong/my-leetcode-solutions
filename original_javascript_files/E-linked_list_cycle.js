@@ -8,9 +8,14 @@ Approach:
 1. **Floyd’s Cycle-Finding Algorithm (Tortoise and Hare)**: Use two pointers, one moving slowly (tortoise) and one moving fast (hare).
 2. **Slow and Fast Pointer Movement**: Move the slow pointer by one step and the fast pointer by two steps. If the linked list has a cycle, the fast pointer will eventually meet the slow pointer.
 3. **Return True or False**: If the slow pointer meets the fast pointer, return true (cycle exists). If the fast pointer reaches the end of the list (null), return false (no cycle).
+
+Time complexity: O(n)
+Problem Type: 
+Two Pointers (Fast & Slow)
+Floyd's Cycle Detection Algorithm (also known as the Tortoise and Hare algorithm)
+
 */
 
-// Definition for singly-linked list.
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -18,27 +23,20 @@ class ListNode {
     }
 }
 
-class Solution {
-    hasCycle(head) {
-        // Initialize two pointers: slow and fast
+
+var hasCycle = function(head) {
         let slow = head;
         let fast = head;
 
-        // Iterate through the linked list
         while (fast && fast.next) {
-            // Move slow pointer by one step
             slow = slow.next;
-            // Move fast pointer by two steps
             fast = fast.next.next;
-
-            // If the slow and fast pointers meet, there is a cycle
             if (slow === fast) {
                 return true;
             }
         }
-
-        // If the fast pointer reaches the end of the list, no cycle exists
+        
         return false;
     }
-}
+
 
