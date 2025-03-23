@@ -43,3 +43,7 @@ let climbStairs = function(n) {
     return prev1;
 }
 
+// Example usage:
+console.log(climbStairs(2)); // Output: 2
+console.log(climbStairs(3)); // Output: 3
+

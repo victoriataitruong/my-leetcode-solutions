@@ -9,22 +9,40 @@ Approach:
 2. **Base Case**: If the current node is None, return 0 (no depth).
 3. **Recursive Case**: Recursively compute the depth of both the left and right subtrees.
 4. **Return the Maximum Depth**: For each node, the depth is 1 plus the maximum depth of its left and right subtrees.
+
+Time complexity: O(n)
+Problem Type: 
+This algorithm follows a recursive pattern, exploring each branch of the tree before moving back up. Since it explores nodes in a depth-first manner, it's categorized under DFS.
 */
 
-class Solution {
-    maxDepth(root) {
-        // Base case: if the node is null, return 0 (no depth)
-        if (!root) {
-            return 0;
-        }
 
-        // Recursively find the depth of the left subtree
-        const leftDepth = this.maxDepth(root.left);
-
-        // Recursively find the depth of the right subtree
-        const rightDepth = this.maxDepth(root.right);
-
-        // Return the maximum depth between left and right subtrees plus 1 for the current node
-        return 1 + Math.max(leftDepth, rightDepth);
+let maxDepth = function(root) {
+    if (!root) {
+        return 0;
     }
-}
+
+    const leftDepth = maxDepth(root.left);  // Fixed: removed 'this'
+    const rightDepth = maxDepth(root.right);  // Fixed: removed 'this'
+    return 1 + Math.max(leftDepth, rightDepth);
+};
+
+//Example usage:
+// Creating a sample binary tree
+let root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+// Calling the maxDepth function
+let depth = maxDepth(root);
+
+// The tree is:
+//         1
+//        / \
+//       2   3
+//      / \
+//     4   5
+
+console.log(depth);  // Output: 3
+

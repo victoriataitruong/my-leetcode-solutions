@@ -36,3 +36,7 @@ let containsDuplicate = function (nums) {
   }
   return false;
 };
+
+// Example usage:
+console.log(containsDuplicate([1, 2, 3, 4]));       // Output: false
+console.log(containsDuplicate([1, 2, 3, 1]));       // Output: true

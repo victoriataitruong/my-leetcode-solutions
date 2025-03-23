@@ -29,4 +29,7 @@ let countBits = function(n) {
     return dp;
 }
 
+// Example usage:
+console.log(countBits(2)); // Output: [0, 1, 1]
+console.log(countBits(5)); // Output: [0, 1, 1, 2, 1, 2]
 

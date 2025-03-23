@@ -28,7 +28,7 @@ var hasCycle = function(head) {
         let slow = head;
         let fast = head;
 
-        while (fast && fast.next) {
+        while (fast && fast.next) { //checks fast and fast.next to ensure no run time error, slow moves one at a time so will safely land at then end
             slow = slow.next;
             fast = fast.next.next;
             if (slow === fast) {
@@ -38,5 +38,21 @@ var hasCycle = function(head) {
         
         return false;
     }
+
+// Example usage:
+// Creating nodes
+const node1 = new ListNode(3);
+const node2 = new ListNode(2);
+const node3 = new ListNode(0);
+const node4 = new ListNode(-4);
+
+// Connecting nodes to form a cycle: 3 → 2 → 0 → -4 → (back to node2)
+node1.next = node2;
+node2.next = node3;
+node3.next = node4;
+node4.next = node2; // Cycle formed here
+
+console.log(hasCycle(node1)); // true
+
 
 
