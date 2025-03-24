@@ -9,27 +9,24 @@ Approach:
 2. **Check for Overlaps**: After sorting, iterate through the intervals and compare each meeting with the next. If the end time of the current meeting is greater than the start time of the next meeting, we have an overlap.
 3. **Return Result**: If any overlap is found, return `false`. Otherwise, return `true` after checking all meetings.
 
+Time complexity: **O(n log n)**  
+Space complexity: **O(1)** (in-place sorting)
+Problem Type: 
+This is a common Greedy Algorithm problem that requires checking for overlapping intervals.
 */
-class Solution {
-    canAttendMeetings(intervals) {
-        // Step 1: Sort the intervals based on the start time of each meeting.
-        intervals.sort((a, b) => a[0] - b[0]);
 
-        // Step 2: Iterate through the sorted intervals to check for overlaps.
-        for (let i = 1; i < intervals.length; i++) {
-            // Step 3: Compare the end time of the current meeting with the start time of the next.
-            if (intervals[i - 1][1] > intervals[i][0]) {
-                return false; // Overlap detected
-            }
+let canAttendMeetings = function(intervals) {
+    intervals.sort((a, b) => a[0] - b[0]);
+
+    for (let i = 1; i < intervals.length; i++) {
+        if (intervals[i - 1][1] > intervals[i][0]) {
+            return false; // Overlap detected
         }
-
-        // Step 4: If no overlap was found, return true.
-        return true;
     }
+
+    return true;
 }
 
 // Example usage:
-const solution = new Solution();
-console.log(solution.canAttendMeetings([[0, 30], [5, 10], [15, 20]])); // false
-console.log(solution.canAttendMeetings([[7, 10], [2, 4]])); // true
-
+console.log(canAttendMeetings([[0, 30], [35, 50], [60, 90]])); // Output: true
+console.log(canAttendMeetings([[0, 30], [25, 50], [60, 90]])); // Output: false
